@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-title>{{product.name}}</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item class="details-list-item">
+        <span class="text-bold">Result Item</span>
+        <span>{{ itemIndex }}</span>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item class="details-list-item">
+        <span class="text-bold">Price</span>
+        <span>{{ product.price }}</span>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item class="details-list-item">
+        <span class="text-bold">Items Left</span>
+        <span>{{ product.itemLeft }}</span>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

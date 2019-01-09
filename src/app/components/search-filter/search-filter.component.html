@@ -1,0 +1,9 @@
+<mat-form-field class="full-width">
+  <input type="text" matInput placeholder="Search by name" name="search" value="" [(ngModel)]="searchInputValue" />
+</mat-form-field>
+<button
+  mat-raised-button
+  color="primary"
+  class="text-bold"
+  (click)="searchProduct()"
+  type="button">Search</button>
