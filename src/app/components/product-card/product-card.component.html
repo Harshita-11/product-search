@@ -1,21 +1,21 @@
-<mat-card>
-  <mat-card-title>{{product.name}}</mat-card-title>
-  <mat-card-content>
-    <mat-list>
-      <mat-list-item class="details-list-item">
-        <span class="text-bold">Result Item</span>
+<div class="car-details-card">
+  <div class="mat-card-title">Name:&nbsp;{{product.name}}</div>
+  <div>
+    <div>
+      <div class="details-list-item">
+        <span class="text-bold">Result Item:&nbsp;</span>
         <span>{{ itemIndex }}</span>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item class="details-list-item">
-        <span class="text-bold">Price</span>
+      </div>
+      <div class="text-border"></div>
+      <div class="details-list-item">
+        <span class="text-bold">Price:&nbsp;</span>
         <span>{{ product.price }}</span>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item class="details-list-item">
-        <span class="text-bold">Items Left</span>
+      </div>
+      <div class="text-border"></div>
+      <div class="details-list-item">
+        <span class="text-bold">Items Left:&nbsp;</span>
         <span>{{ product.itemLeft }}</span>
-      </mat-list-item>
-    </mat-list>
-  </mat-card-content>
-</mat-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,20 @@
-<mat-form-field class="full-width">
+<div class="full-width">
   <input type="text" matInput placeholder="Search by name" name="search" value="" [(ngModel)]="searchInputValue" />
-</mat-form-field>
+</div>
+<div class="radio-buttons-filter">
+    <input type="radio" name="range" value="less" id="less" [(ngModel)]="priceRange" 
+    (change)="radioChangeHandler($event)">
+    <label for="priceRange1">Less than 5000</label> <br>
+    <input type="radio" name="range" value="more" id="more" [(ngModel)]="priceRange"
+    (change)="radioChangeHandler($event)">
+    <label for="priceRange2">Greater than 5000</label> <br>
+    <input type="radio" name="range" value="noPriceRange" id="noPriceRange" [(ngModel)]="priceRange"
+    (change)="radioChangeHandler($event)">
+    <label for="noPriceRange">All</label>
+</div>
 <button
-  mat-raised-button
   color="primary"
-  class="text-bold"
+  class="text-bold btn btn-primary"
   (click)="searchProduct()"
-  type="button">Search</button>
+  type="button">Search
+</button>

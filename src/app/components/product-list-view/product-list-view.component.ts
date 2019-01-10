@@ -9,7 +9,7 @@ import { Product } from '../../model/product';
 })
 export class ProductListViewComponent implements OnInit {
   productList;
-  categoryList;
+  // categoryList;
   filteredList;
 
   constructor(private _productListService: ProductListService) { }
@@ -18,7 +18,7 @@ export class ProductListViewComponent implements OnInit {
     // this._productListService.sayHey();
     this._productListService.getProductsList().subscribe(data => {
       this.productList = data.products;
-      this.categoryList = data.category;
+      // this.categoryList = data.category;
       this.filteredList = this.productList;
       console.log(this.productList);
     });

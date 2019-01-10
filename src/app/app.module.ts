@@ -9,8 +9,7 @@ import { ProductTabComponent } from './components/product-tab/product-tab.compon
 import { ProductListViewComponent } from './components/product-list-view/product-list-view.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { HttpClientModule } from '@angular/common/http';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatCardModule, MatListModule, MatFormFieldModule, MatButtonModule, MatInputModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
 
@@ -28,11 +27,6 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatCardModule,
-    MatListModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatInputModule,
     FormsModule
   ],
   providers: [],

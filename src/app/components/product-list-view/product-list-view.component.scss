@@ -1,0 +1,46 @@
+.car-list-container {
+    margin: 16px 0;
+  
+    .car-filter {
+      margin: 10px;
+    }
+
+    .col-sm-4 {
+      flex: none;
+    }
+
+    .card {
+      display: inline-block;
+    }
+  }
+  
+  .button-container {
+    margin: 18px 0 0;
+  }
+  
+  @media only screen and (min-width: 767px) {
+    .car-list-container {
+      display: flex;
+  
+      .car-filter {
+        width: 20%;
+        margin-left: 0;
+      }
+      .car-list {
+        width: 80%;
+      }
+      .car-details {
+        float: left;
+        width: 50%;
+      }
+    }
+  }
+  
+  @media only screen and (min-width: 1019px) {
+    .car-list-container {
+      .car-details {
+        width: 33%;
+      }
+    }
+  }
+  

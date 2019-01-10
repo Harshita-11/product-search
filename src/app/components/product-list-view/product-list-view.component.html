@@ -1,2 +1,8 @@
-<app-search-filter [productList]="productList" (filterList)="onListFiltered($event)"></app-search-filter>
-<app-product-card *ngFor="let prod of filteredList; let i=index;" [product]="prod" [itemIndex]="i" ></app-product-card>
+<div class="row car-list-container">
+        <div class="car-filter col-sm-4">
+    <app-search-filter [productList]="productList" (filterList)="onListFiltered($event)" class="car-filter"></app-search-filter>
+</div>
+<div class="car-list col-sm-8 card">
+<app-product-card *ngFor="let prod of filteredList; let i=index;" [product]="prod" [itemIndex]="i" class="car-list card-body"></app-product-card>
+</div>
+</div>
