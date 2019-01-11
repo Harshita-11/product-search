@@ -1,5 +1,5 @@
 .car-details-card {
-    background: #ddd;
+    color: white;
     margin: 8px;
     padding: 8px 8px 0px 11px;
     display: inline-block;
@@ -27,4 +27,13 @@
     button {
       margin: 0 6px;
     }
+  }
+  .Red {
+    background-color: red;
+  }
+  .Green {
+    background-color: green;
+  }
+  .Orange {
+    background-color: orange;
   }

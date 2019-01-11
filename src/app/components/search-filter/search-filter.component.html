@@ -12,6 +12,13 @@
     (change)="radioChangeHandler($event)">
     <label for="noPriceRange">All</label>
 </div>
+
+<div class="dropdown-filter">
+  <select change="dropdownFilter($event)">
+    <option>Category dropdown</option>
+    <option *ngFor=" let cat of categoryList" value="{{cat}}">{{cat.categoryName}}</option>
+</select>
+</div>
 <button
   color="primary"
   class="text-bold btn btn-primary"

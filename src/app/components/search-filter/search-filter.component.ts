@@ -9,136 +9,92 @@ import { ProductCardComponent } from '../product-card/product-card.component';
 export class SearchFilterComponent implements OnInit {
   @Input() productList;
   @Output() filterList = new EventEmitter<any[]>();
+  @Input() categoryList;
   searchInputValue: string;
   priceRange: string;
-  filteredList;
+  filteredList: any[];
   radioFilter: boolean;
+  categoryDropdownFilter: string;
 
   constructor() { }
 
   ngOnInit() {
+    this.filteredList = [];
     console.log('priceRange', this.priceRange);
+    console.log('ngOnInit**********', this.categoryList);
+    console.log('########', this.productList);
   }
 
   radioChangeHandler (event) {
-    this.filteredList = [];
     this.priceRange = event.target.value;
     console.log(this.priceRange);
-    if (this.priceRange === 'less') {
-      this.productList.forEach(prod => {
-        if (prod.price < 5000) {
+}
+  searchProduct() {
+    this.filteredList = [];
+    console.log('searchInputValue', this.searchInputValue);
+    console.log('inside search input', this.productList);
+    console.log('inside se', this.categoryList);
+    // this.filteredList = this.productList.filter(
+    // product => product.name === this.searchInputValue  );
+    // console.log(this.productList, this.filteredList);
+    // this.filterList.emit(this.filteredList);
+    // this.filteredList = [];
+    // this.productList.forEach(prod => {
+    //   if (prod.name === this.searchInputValue) {
+    //     this.filteredList.push(prod);
+    //   }
+    //   this.filterList.emit(this.filteredList);
+    // });
+    // this.productList.forEach(prod => {
+    //   if (this.priceRange === 'less') {
+    //       if (prod.price < 5000) {
+    //         this.filteredList.push(prod);
+    //       }
+    //      } else if (this.priceRange === 'more') {
+    //        if (prod.price > 5000) {
+    //          this.filteredList.push(prod);
+    //        }
+    //      } else {
+    //       this.filteredList.push(prod);
+    //      }
+    //   this.filterList.emit(this.filteredList);
+    // });
+    const regex = new RegExp(this.searchInputValue, 'ig');
+    this.productList.forEach(prod => {
+      if (prod.name === this.searchInputValue.match(regex)) {
+        if (this.priceRange === 'less') {
+          if (prod.price < 5000) {
+          this.filteredList.push(prod);
+          }
+        } else if (this.priceRange === 'more') {
+          if (prod.price > 5000) {
+          this.filteredList.push(prod);
+          }
+        } else if (this.priceRange === 'noPriceRange' || this.priceRange === undefined) {
+          this.filteredList.push(prod);
+        } else if (!(this.priceRange === 'less' || this.priceRange === 'more' ||
+                  this.priceRange === 'noPriceRange')) {
           this.filteredList.push(prod);
         }
-       });
-    }
+      }
+       if (this.searchInputValue === '' || this.searchInputValue === undefined) {
+        if (this.priceRange === 'less') {
+          if (prod.price < 5000) {
+          this.filteredList.push(prod);
+          }
+        } else if (this.priceRange === 'more') {
+          if (prod.price > 5000) {
+          this.filteredList.push(prod);
+          }
+        } else if (this.priceRange === 'noPriceRange') {
+          this.filteredList.push(prod);
+        }
+      }
+    });
     this.filterList.emit(this.filteredList);
   }
-  // } else if (this.priceRange === 'more') {
-  //     if (product.price > 5000) {
-  //       return this.radioFilter
-  //     }
-  //   } else {
-  //       this.radioFilter
-  //     }
-
-  searchProduct() {
-    this.filteredList = this.productList.filter(
-    product => product.name === this.searchInputValue  );
-    console.log(this.productList, this.filteredList);
-    this.filterList.emit(this.filteredList);
+  dropdownFilter(event) {
+    this.categoryDropdownFilter = event.target.value;
+    console.log('this.categoryDropdownFilter', this.categoryDropdownFilter);
   }
-
-  // searchProduct() {
-  //   this.filteredList = this.productList.filter(
-  //     product => {
-  //       if (this.priceRange === 'less') {
-  //         if (product.price < 5000) {
-  //           return this.radioFilter;
-  //         }
-  //       }
-  //     }
-  // }
-//   import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'my-app',
-//   templateUrl: './app.component.html',
-//   styleUrls: [ './app.component.css' ]
-// })
-// export class AppComponent  {
-//   places = [
-//     {
-//       name: 'Pune',
-//       distance: 3000
-//     },
-//     {
-//       name: 'Mumbai',
-//       distance: 6000
-//     },
-//     {
-//       name: 'Katni',
-//       distance: 2000
-//     },
-//     {
-//       name: 'Ahemedabad',
-//       distance: 7000
-//     },
-//     {
-//       name: 'Indore',
-//       distance: 3000
-//     },
-//     {
-//       name: 'Bhopal',
-//       distance: 30000
-//     }
-//   ];
-
-//   filteredPlaces = this.places;
-
-//   searchModel = {
-//     city: '',
-//     distance: 'all'
-//   }
-
-//   filter() {
-//     let regex = new RegExp(this.searchModel.city, 'ig');
-
-//     if(this.searchModel.city && this.searchModel.distance === 'less') {
-//       this.filteredPlaces = this.places.filter((place) => {
-//         if (place.name.match(regex) && place.distance < 5000) {
-//           return place;
-//         }
-//       });
-//     } else if (!this.searchModel.city && this.searchModel.distance === 'less') {
-//       this.filteredPlaces = this.places.filter((place) => {
-//         if (place.distance < 5000) {
-//           return place;
-//         }
-//       });
-//     } else if (this.searchModel.city && this.searchModel.distance === 'more') {
-//       this.filteredPlaces = this.places.filter((place) => {
-//         if (place.name.match(regex) && place.distance >= 5000) {
-//           return place;
-//         }
-//       });
-//     } else if (!this.searchModel.city && this.searchModel.distance === 'more') {
-//       this.filteredPlaces = this.places.filter((place) => {
-//         if (place.distance >= 5000) {
-//           return place;
-//         }
-//       });
-//     } else {
-//       this.filteredPlaces = this.places.filter((place) => {
-//         if (place.name.match(regex)) {
-//           return place;
-//         }
-//       });
-//     }
-//   }
-
-//   reset() {
-//     this.filteredPlaces = this.places;
-//   }
-// }
-
 }

@@ -12,7 +12,8 @@ export class ProductCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // console.log(this.product);
+    console.log('rating', this.product.rating);
+    // console.log('length', this.product[].length);
   }
 
 }
