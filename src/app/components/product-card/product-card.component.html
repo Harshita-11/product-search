@@ -1,8 +1,8 @@
 <div class="car-details-card" [ngClass]="{
-  'Red': this.product.rating < 2,
-  'Green': this.product.rating >= 2 && this.product.rating < 3,
-  'Orange': this.product.rating >= 3 && this.product.rating <= 5
-}">
+    'red': this.product.rating < 2,
+    'green': this.product.rating >= 2 && this.product.rating < 3,
+    'orange': this.product.rating >= 3 && this.product.rating <= 5
+  }">
   <div class="mat-card-title">Name:&nbsp;{{product.name}}</div>
   <div>
     <div>

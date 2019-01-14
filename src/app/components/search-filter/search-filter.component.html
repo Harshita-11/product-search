@@ -1,27 +1,34 @@
 <div class="full-width">
-  <input type="text" matInput placeholder="Search by name" name="search" value="" [(ngModel)]="searchInputValue" />
+  <input type="text" placeholder="Search by name" name="search" value="" [(ngModel)]="searchFilter.searchInputValue" />
 </div>
+
 <div class="radio-buttons-filter">
-    <input type="radio" name="range" value="less" id="less" [(ngModel)]="priceRange" 
-    (change)="radioChangeHandler($event)">
+    <input type="radio" name="range" value="less" id="priceRange1" [(ngModel)]="searchFilter.priceRange">
     <label for="priceRange1">Less than 5000</label> <br>
-    <input type="radio" name="range" value="more" id="more" [(ngModel)]="priceRange"
-    (change)="radioChangeHandler($event)">
+
+    <input type="radio" name="range" value="more" id="priceRange2" [(ngModel)]="searchFilter.priceRange">
     <label for="priceRange2">Greater than 5000</label> <br>
-    <input type="radio" name="range" value="noPriceRange" id="noPriceRange" [(ngModel)]="priceRange"
-    (change)="radioChangeHandler($event)">
-    <label for="noPriceRange">All</label>
+
+    <input type="radio" name="range" value="noPriceRange" id="priceRange3" [(ngModel)]="searchFilter.priceRange">
+    <label for="priceRange3">All</label>
 </div>
 
 <div class="dropdown-filter">
-  <select change="dropdownFilter($event)">
-    <option>Category dropdown</option>
-    <option *ngFor=" let cat of categoryList" value="{{cat}}">{{cat.categoryName}}</option>
-</select>
+  <select [(ngModel)]="searchFilter.category">
+    <!-- <option>Category dropdown</option> -->
+    <option *ngFor=" let cat of categoryList" [value]="cat.categoryId">{{cat.categoryName}}</option>
+  </select>
 </div>
+
 <button
-  color="primary"
   class="text-bold btn btn-primary"
   (click)="searchProduct()"
   type="button">Search
+</button>
+
+<button
+  class="text-bold btn btn-primary"
+  (click)="removeFilter()"
+  type="button">
+  Reset
 </button>

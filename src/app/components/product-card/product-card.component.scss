@@ -4,13 +4,13 @@
     padding: 8px 8px 0px 11px;
     display: inline-block;
     width: 25%;
-  
+
     .details-title {
       font-weight: bold;
       font-size: 18px;
       text-align: center;
     }
-  
+
     .details-list-item {
       height: 32px;
       font-size: 14px;
@@ -22,18 +22,21 @@
       margin-bottom: 6px;
     }
   }
-  
+
   .button-container {
     button {
       margin: 0 6px;
     }
   }
-  .Red {
+
+  .red {
     background-color: red;
   }
-  .Green {
+
+  .green {
     background-color: green;
   }
-  .Orange {
+
+  .orange {
     background-color: orange;
   }

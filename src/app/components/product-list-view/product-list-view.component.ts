@@ -17,12 +17,13 @@ export class ProductListViewComponent implements OnInit {
   ngOnInit() {
     // this._productListService.sayHey();
     this._productListService.getProductsList().subscribe(data => {
+      console.log(data);
       this.productList = data.products;
       this.categoryList = data.categories;
       this.filteredList = this.productList;
-      console.log('this.productList', this.productList);
-      console.log('this.categoryList', this.categoryList);
-      console.log('filterdList', this.filteredList.length);
+      // console.log('this.productList', this.productList);
+      // console.log('this.categoryList', this.categoryList);
+      // console.log('filterdList', this.filteredList.length);
     });
   }
 

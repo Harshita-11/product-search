@@ -40,34 +40,34 @@
       "name": "Microwave",
       "price": 100,
       "itemLeft": 150,
-      "categories": 1,
+      "categories": [1],
       "rating": 5
     },
     {
       "name": "AC",
       "price": 150,
       "itemLeft": 10,
-      "categories": 1,
+      "categories": [1],
       "rating": 3
     },
     {
       "name": "Cooler",
       "price": 5000,
       "itemLeft": 125,
-      "categories": 1,
+      "categories": [1],
       "rating": 1
     },
     {
       "name": "Washing",
       "price": 1500,
       "itemLeft": 12,
-      "categories": 1,
+      "categories": [1],
       "rating": 2
     },
     {
       "name": "Oppo",
-      "price": "12000",
-      "itemLeft": "5",
+      "price": 12000,
+      "itemLeft": 5,
       "categories": [2,5],
       "rating": 5
     },
@@ -82,7 +82,7 @@
       "name": "LG",
       "price": 11100,
       "itemLeft": 120,
-      "categories": 2,
+      "categories": [2],
       "rating": 3
     },
     {
@@ -96,21 +96,21 @@
       "name": "Samsung",
       "price": 15000,
       "itemLeft": 125,
-      "categories": 2,
+      "categories": [2],
       "rating": 2
     },
     {
       "name": "Samsung",
       "price": 4000,
       "itemLeft": 125,
-      "categories": 2,
+      "categories": [2],
       "rating": 5
     },
     {
       "name": "Micromax",
       "price": 11500,
       "itemLeft": 12,
-      "categories": 2,
+      "categories": [2],
       "rating": 4
     }
   ]
