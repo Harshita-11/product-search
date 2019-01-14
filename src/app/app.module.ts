@@ -11,6 +11,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { ErrorComponent } from './components/error/error.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     ProductSearchComponent,
     ProductTabComponent,
     ProductListViewComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

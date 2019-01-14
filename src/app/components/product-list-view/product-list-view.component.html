@@ -1,6 +1,9 @@
 <div class="row product-list-container">
     <div class="product-filter col-lg-3 col-md-6 col-sm-6 col-xs-12">
-        <app-search-filter [productList]="productList" (filterList)="onListFiltered($event)" class="product-filtersearch"
+        <app-search-filter 
+        [productList]="productList" 
+        (filterList)="onListFiltered($event)" 
+        class="product-filtersearch"
         [categoryList]="categoryList"></app-search-filter>
     </div>
     <div class="product-list col-lg-9 col-md-6 col-xs-12 col-sm-6 card">
@@ -9,6 +12,11 @@
       [product]="prod"
       [itemIndex]="i"
       class="col-lg-4 col-md-6 col-xs-12 col-sm-6 product-list card-body"></app-product-card>
+       <div class="error" *ngIf="!filteredList?.length">
+        <app-error>
+             
+        </app-error>
+       </div>
     </div>
 </div>
 
