@@ -1,16 +1,26 @@
-.car-list-container {
-    margin: 16px 0;
-  
-    .car-filter {
-      margin: 10px;
-    }
-
-    .col-sm-4 {
-      flex: none;
-    }
-
+.product-list-container {
+    margin: 27px 0 16px 0;
     .card {
       display: inline-block;
+      .card-body {
+        padding: 8px;
+        display: inline-block;
+      }
+    }
+    .product-filter {
+      max-height: 75vh;
+      overflow: auto;
+      padding: 0 16px 0 0;
+      color: #fff;
+      padding: 10px 0 10px 16px;
+      margin: 0;
+      border-radius: 4px;
+      display: block;
+      position: sticky;
+      top: 80px;
+      .product-filtersearch {
+        padding: 0 1px;
+      }
     }
   }
   
@@ -18,29 +28,20 @@
     margin: 18px 0 0;
   }
   
-  @media only screen and (min-width: 767px) {
-    .car-list-container {
-      display: flex;
+  // @media only screen and (min-width: 767px) {
+  //   .product-list-container {
+  //     .product-details {
+  //       float: left;
+  //       width: 50%;
+  //     }
+  //   }
+  // }
   
-      .car-filter {
-        width: 20%;
-        margin-left: 0;
-      }
-      .car-list {
-        width: 80%;
-      }
-      .car-details {
-        float: left;
-        width: 50%;
-      }
-    }
-  }
-  
-  @media only screen and (min-width: 1019px) {
-    .car-list-container {
-      .car-details {
-        width: 33%;
-      }
-    }
-  }
+  // @media only screen and (min-width: 1019px) {
+  //   .product-list-container {
+  //     .product-details {
+  //       width: 33%;
+  //     }
+  //   }
+  // }
   

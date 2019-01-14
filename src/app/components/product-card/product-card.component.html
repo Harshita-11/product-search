@@ -1,9 +1,9 @@
-<div class="car-details-card" [ngClass]="{
+<div class="product-details-card" [ngClass]="{
     'red': this.product.rating < 2,
     'green': this.product.rating >= 2 && this.product.rating < 3,
     'orange': this.product.rating >= 3 && this.product.rating <= 5
   }">
-  <div class="mat-card-title">Name:&nbsp;{{product.name}}</div>
+  <div class="product-name">Name:&nbsp;{{product.name}}</div>
   <div>
     <div>
       <div class="details-list-item">
@@ -22,4 +22,4 @@
       </div>
     </div>
   </div>
-</div>
+  </div>

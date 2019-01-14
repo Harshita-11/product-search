@@ -1,13 +1,14 @@
-<div class="row car-list-container">
-  <div class="car-filter col-sm-4">
-    <app-search-filter [productList]="productList" (filterList)="onListFiltered($event)" class="car-filter"
-     [categoryList]="categoryList"></app-search-filter>
-  </div>
-  <div class="car-list col-sm-8 card">
+<div class="row product-list-container">
+    <div class="product-filter col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <app-search-filter [productList]="productList" (filterList)="onListFiltered($event)" class="product-filtersearch"
+        [categoryList]="categoryList"></app-search-filter>
+    </div>
+    <div class="product-list col-lg-9 col-md-6 col-xs-12 col-sm-6 card">
     <app-product-card
       *ngFor="let prod of filteredList; let i=index;"
       [product]="prod"
       [itemIndex]="i"
-      class="car-list card-body"></app-product-card>
+      class="col-lg-4 col-md-6 col-xs-12 col-sm-6 product-list card-body"></app-product-card>
     </div>
 </div>
+
