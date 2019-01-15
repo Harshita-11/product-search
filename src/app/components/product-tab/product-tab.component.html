@@ -1,3 +1,19 @@
-<p>
-  product-tab works!
-</p>
+<!-- Bootstrap CSS -->
+<!-- jQuery first, then Bootstrap JS. -->
+<!-- Nav tabs -->
+<div class="tabsBar">
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item" *ngFor='let message of messageService.messages; let i=index;'> {{message}}
+      <a class="nav-link active" 
+      href="#profile" role="tab" (click)="addButton()">+
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- Tab panes -->
+<!-- <div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="profile">...</div>
+  <div role="tabpanel" class="tab-pane fade" id="buzz">bbb</div>
+  <div role="tabpanel" class="tab-pane fade" id="references">ccc</div>
+</div> -->

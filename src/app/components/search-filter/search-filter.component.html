@@ -15,8 +15,8 @@
 
 <div class="dropdown-filter">
   <select [(ngModel)]="searchFilter.category">
-    <!-- <option>Category dropdown</option> -->
-    <option *ngFor=" let cat of categoryList" [value]="cat.categoryId">{{cat.categoryName}}</option>
+    <option value="" selected disabled hidden>Select Category</option>
+    <option *ngFor=" let cat of categoryList" [value]="cat.categoryId" class="dropdown-item">{{cat.categoryName}}</option>
   </select>
 </div>
 

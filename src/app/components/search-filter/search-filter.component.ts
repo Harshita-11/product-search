@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { ProductCardComponent } from '../product-card/product-card.component';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-search-filter',
@@ -23,7 +24,7 @@ export class SearchFilterComponent implements OnInit, OnChanges {
     category: ''
   };
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     // this.filteredList = this.productList;
@@ -33,6 +34,7 @@ export class SearchFilterComponent implements OnInit, OnChanges {
   ngOnChanges() {
     this.filteredList = this.productList;
     // console.log('ngOnChanges: ', this.productList);
+    this.dataService.getSearchData(this.filteredList);
   }
 
   searchProduct() {
@@ -62,7 +64,6 @@ export class SearchFilterComponent implements OnInit, OnChanges {
           });
 
           this.filteredList = filterFilteredList;
-          console.log('priceRange: ', this.filteredList);
         } else if (key === 'category') {
           filterFilteredList = [];
 
@@ -73,11 +74,9 @@ export class SearchFilterComponent implements OnInit, OnChanges {
           });
 
           this.filteredList = filterFilteredList;
-          console.log('category: ', this.filteredList);
         }
       }
     }
-    console.log('\n\nfiltered: ', this.filteredList);
     this.filterList.emit(this.filteredList);
   }
 

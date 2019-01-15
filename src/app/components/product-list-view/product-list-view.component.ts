@@ -27,5 +27,8 @@ export class ProductListViewComponent implements OnInit {
     this.filteredList = filteredList;
     console.log(this.filteredList.length);
   }
+  onAddItem(buttonname) {
+    console.log('calling from parent', buttonname);
+  }
 
 }

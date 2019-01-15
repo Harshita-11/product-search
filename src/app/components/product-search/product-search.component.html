@@ -1,2 +1,7 @@
-<app-product-tab></app-product-tab>
+<app-product-tab 
+    let i=index;
+    [productList]="productList"
+    (addItem)="onAddItem($event)"
+    [index]="i">
+</app-product-tab>
 <app-product-list-view></app-product-list-view>
