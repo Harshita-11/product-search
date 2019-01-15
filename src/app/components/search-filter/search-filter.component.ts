@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-import { ProductCardComponent } from '../product-card/product-card.component';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { SearchDataService } from '../../services/search-data.service';
 
 @Component({
   selector: 'app-search-filter',
@@ -17,25 +17,29 @@ export class SearchFilterComponent implements OnInit, OnChanges {
   filteredList;
   radioFilter: boolean;
   categoryDropdownFilter: string;
-  searchFilter = {
-    searchInputValue: '',
-    priceRange: '',
-    category: ''
-  };
+  searchFilter: any;
 
-  constructor() { }
+  constructor(private _searchDataService: SearchDataService) { }
 
   ngOnInit() {
-    // this.filteredList = this.productList;
-    // console.log('init: ', this.productList);
+    this.searchFilter = {
+      searchInputValue: '',
+      priceRange: '',
+      category: ''
+    };
+
+    this._searchDataService.getCurrentSearchModel().subscribe(model => {
+      this.searchFilter = model;
+      this.searchProduct(true);
+      console.log('received updated search model obj: ', model);
+    });
   }
 
   ngOnChanges() {
     this.filteredList = this.productList;
-    // console.log('ngOnChanges: ', this.productList);
   }
 
-  searchProduct() {
+  searchProduct(searchModelUpdated?) {
     this.filteredList = this.productList;
     let filterFilteredList = [];
     const regex = new RegExp(this.searchFilter.searchInputValue, 'ig');
@@ -62,7 +66,7 @@ export class SearchFilterComponent implements OnInit, OnChanges {
           });
 
           this.filteredList = filterFilteredList;
-          console.log('priceRange: ', this.filteredList);
+          // console.log('priceRange: ', this.filteredList);
         } else if (key === 'category') {
           filterFilteredList = [];
 
@@ -73,12 +77,21 @@ export class SearchFilterComponent implements OnInit, OnChanges {
           });
 
           this.filteredList = filterFilteredList;
-          console.log('category: ', this.filteredList);
+          // console.log('category: ', this.filteredList);
         }
       }
     }
-    console.log('\n\nfiltered: ', this.filteredList);
+    // console.log('\n\nfiltered: ', this.filteredList);
     this.filterList.emit(this.filteredList);
+
+    if (!searchModelUpdated) {
+      this._searchDataService.setSearchData(this.searchFilter);
+    }
+  }
+
+  onSearchFilterChange() {
+    // console.log('search filter obj changed to: ', this.searchFilter);
+    // this._searchDataService.setSearchData(this.searchFilter);
   }
 
   removeFilter() {

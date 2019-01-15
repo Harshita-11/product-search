@@ -1,3 +1,10 @@
-<p>
-  product-tab works!
-</p>
+<div class="search-tab float-left" *ngFor="let tab of searchDataArr; let i=index; let lastTab=last;">
+  <span class="tab-text" (click)="goToTab(i)">Search {{ i+1 }}</span>
+  <button
+    class="btn tab-button font-weight-bold"
+    [ngClass]="{ 'btn-success' : lastTab, 'btn-danger' : !lastTab }"
+    type="button"
+    (click)="lastTab ? addNewTab(i) : removeCurrentTab(i)">
+    {{ lastTab ? '&#43;' : '&#8211;' }}
+  </button>
+</div>

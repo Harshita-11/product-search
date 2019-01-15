@@ -1,20 +1,20 @@
 <div class="full-width">
-  <input type="text" placeholder="Search by name" name="search" value="" [(ngModel)]="searchFilter.searchInputValue" />
+  <input type="text" placeholder="Search by name" name="search" value="" [(ngModel)]="searchFilter.searchInputValue" (ngModelChange)="onSearchFilterChange()" />
 </div>
 
 <div class="radio-buttons-filter">
-    <input type="radio" name="range" value="less" id="priceRange1" [(ngModel)]="searchFilter.priceRange">
+    <input type="radio" name="range" value="less" id="priceRange1" [(ngModel)]="searchFilter.priceRange" (ngModelChange)="onSearchFilterChange()">
     <label for="priceRange1">Less than 5000</label> <br>
 
-    <input type="radio" name="range" value="more" id="priceRange2" [(ngModel)]="searchFilter.priceRange">
+    <input type="radio" name="range" value="more" id="priceRange2" [(ngModel)]="searchFilter.priceRange" (ngModelChange)="onSearchFilterChange()">
     <label for="priceRange2">Greater than 5000</label> <br>
 
-    <input type="radio" name="range" value="noPriceRange" id="priceRange3" [(ngModel)]="searchFilter.priceRange">
+    <input type="radio" name="range" value="noPriceRange" id="priceRange3" [(ngModel)]="searchFilter.priceRange" (ngModelChange)="onSearchFilterChange()">
     <label for="priceRange3">All</label>
 </div>
 
 <div class="dropdown-filter">
-  <select [(ngModel)]="searchFilter.category">
+  <select [(ngModel)]="searchFilter.category" (ngModelChange)="onSearchFilterChange()">
     <!-- <option>Category dropdown</option> -->
     <option *ngFor=" let cat of categoryList" [value]="cat.categoryId">{{cat.categoryName}}</option>
   </select>
@@ -27,7 +27,7 @@
 </button>
 
 <button
-  class="text-bold btn btn-primary"
+  class="text-bold btn btn-danger"
   (click)="removeFilter()"
   type="button">
   Reset
