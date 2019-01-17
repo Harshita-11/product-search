@@ -5,7 +5,7 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class SearchDataService {
-  searchModel;  // search data object local to srvc
+  searchModel;  // search data object local to srvc --> type (new search model obj type) ?
   private currentSearchModel = new Subject<any>();  // current filter values which needs to be set in search filter
 
   constructor() {
@@ -13,24 +13,24 @@ export class SearchDataService {
   }
 
   // return search data object stored in srvc
-  getSearchData() {
+  getSearchData(): any {  // --> returns srchModelObj, so give appropriate data type
     console.log('getSearchData from service', this.searchModel);
     return this.searchModel;
   }
 
   // set srvc search data object to provided filter vals
-  setSearchData(searchModel) {
+  setSearchData(searchModel: any): void { // --> same
     this.searchModel = Object.assign({}, searchModel);
     this.currentSearchModel.next(searchModel);
 
     console.log('setSearchData to service', this.searchModel);
   }
 
-  setCurrentSearchModel(searchModel) {
+  setCurrentSearchModel(searchModel: any): void { // --> same
     this.currentSearchModel.next(searchModel);
   }
 
-  getCurrentSearchModel(): Observable<any> {
+  getCurrentSearchModel(): Observable<any> {  // --> same
     return this.currentSearchModel.asObservable();
   }
 }

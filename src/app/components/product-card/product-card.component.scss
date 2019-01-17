@@ -1,5 +1,5 @@
 .product-details-card {
-    color: white;
+    // color: white;
     margin: 8px;
     box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
     transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
@@ -10,6 +10,16 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    &.low {
+      background-color: #f8a087;
+    }
+    &.average {
+      background-color: #dcd385;
+    }
+    &.good {
+      background-color: #85f181;
+    }
 
     .details-title {
       font-weight: bold;
@@ -34,23 +44,4 @@
     button {
       margin: 0 6px;
     }
-  }
-
-  .red {
-    background-color: #E27D60;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .green {
-    background-color: #85dcb8;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .orange {
-    background-color: #C38D9E;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }

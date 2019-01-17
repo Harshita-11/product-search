@@ -7,7 +7,7 @@ import { SearchDataService } from '../../services/search-data.service';
   styleUrls: ['./product-tab.component.scss']
 })
 export class ProductTabComponent implements OnInit {
-  searchDataArr = [{
+  searchDataArr = [{  // --> type of search obj model ? create new interface
     searchInputValue: '',
     priceRange: '',
     category: ''
@@ -18,13 +18,13 @@ export class ProductTabComponent implements OnInit {
   ngOnInit() {
   }
 
-  goToTab(index) {
+  goToTab(index: number): void {
     console.log(this.searchDataArr[index]);
     this.setSearchData(index);
   }
 
-  addNewTab(addAtIndex) {
-    const searchData = this._searchDataService.getSearchData();
+  addNewTab(addAtIndex: number): void {
+    const searchData: any = this._searchDataService.getSearchData();  // --> check what type this is ?
 
     if (searchData) {
       this.searchDataArr.splice(addAtIndex, 0, searchData);
@@ -35,14 +35,14 @@ export class ProductTabComponent implements OnInit {
     this.setSearchData(addAtIndex, true);
   }
 
-  removeCurrentTab(currentTabIndex) {
+  removeCurrentTab(currentTabIndex: number): void {
     this.searchDataArr.splice(currentTabIndex, 1);
     console.log('tab removed!', this.searchDataArr);
 
     this.setSearchData(currentTabIndex);
   }
 
-  setSearchData(index, isAdded?) {
+  setSearchData(index: number, isAdded?: boolean): void {
     if (isAdded) {
       this._searchDataService.setCurrentSearchModel({
         searchInputValue: '',

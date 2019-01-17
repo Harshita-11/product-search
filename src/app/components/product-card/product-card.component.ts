@@ -6,14 +6,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent implements OnInit {
-  @Input() product: any;
+  @Input() product: any;  // --> product type ?
   @Input() itemIndex: number;
 
   constructor() { }
 
   ngOnInit() {
-    // console.log('rating', this.product.rating);
-    // console.log('length', this.product[].length);
   }
 
 }

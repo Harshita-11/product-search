@@ -1,23 +1,23 @@
 <div class="product-details-card" [ngClass]="{
-    'red': this.product.rating < 2,
-    'green': this.product.rating >= 2 && this.product.rating < 3,
-    'orange': this.product.rating >= 3 && this.product.rating <= 5
+    'low': this.product.rating < 2,
+    'average': this.product.rating >= 2 && this.product.rating < 3,
+    'good': this.product.rating >= 3 && this.product.rating <= 5
   }">
-  <div class="product-name">Name:&nbsp;{{product.name}}</div>
+  <div class="product-name font-weight-bold text-center">{{product.name}}</div>
   <div>
     <div>
       <div class="details-list-item">
-        <span class="text-bold">Result Item:&nbsp;</span>
+        <span class="font-weight-bold">Result Item:&nbsp;</span>
         <span>{{ itemIndex }}</span>
       </div>
       <div class="text-border"></div>
       <div class="details-list-item">
-        <span class="text-bold">Price:&nbsp;</span>
+        <span class="font-weight-bold">Price:&nbsp;</span>
         <span>{{ product.price }}</span>
       </div>
       <div class="text-border"></div>
       <div class="details-list-item">
-        <span class="text-bold">Items Left:&nbsp;</span>
+        <span class="font-weight-bold">Items Left:&nbsp;</span>
         <span>{{ product.itemLeft }}</span>
       </div>
     </div>

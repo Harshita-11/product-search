@@ -8,14 +8,14 @@ import { Product } from '../../model/product';
   styleUrls: ['./product-list-view.component.scss']
 })
 export class ProductListViewComponent implements OnInit {
-  productList;
+  productList;  // --> types for each of these ? hint; all have same types
   categoryList;
   filteredList;
 
   constructor(private _productListService: ProductListService) { }
 
   ngOnInit() {
-    this._productListService.getProductsList().subscribe(data => {
+    this._productListService.getProductsList().subscribe((data: any) => { // --> type of data to be received ?
       console.log(data);
       this.productList = data.products;
       this.categoryList = data.categories;
@@ -23,7 +23,7 @@ export class ProductListViewComponent implements OnInit {
     });
   }
 
-  onListFiltered(filteredList) {
+  onListFiltered(filteredList: any): void { // type of filteredList ?
     this.filteredList = filteredList;
     console.log(this.filteredList.length);
   }

@@ -15,9 +15,7 @@ export class ProductListService {
   constructor(
     private httpService: HTTPService) {
   }
-  /**
-   * Method to get products from json
-   */
+
   getProductsList(): Observable<Products> {
     return this.httpService.getTest('../assets/data/product-list.json')
     .pipe(map( (res: Products) => {

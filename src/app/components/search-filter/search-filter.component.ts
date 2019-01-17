@@ -7,10 +7,10 @@ import { SearchDataService } from '../../services/search-data.service';
   styleUrls: ['./search-filter.component.scss']
 })
 export class SearchFilterComponent implements OnInit, OnChanges {
-  @Input() productList;
+  @Input() productList; // --> give types to these (both have separate types)
   @Input() categoryList;
 
-  @Output() filterList = new EventEmitter<any[]>();
+  @Output() filterList = new EventEmitter<any[]>(); // --> shouldn't be any here
 
   searchInputValue: string;
   priceRange: string;
@@ -28,7 +28,7 @@ export class SearchFilterComponent implements OnInit, OnChanges {
       category: ''
     };
 
-    this._searchDataService.getCurrentSearchModel().subscribe(model => {
+    this._searchDataService.getCurrentSearchModel().subscribe((model: any) => { // --> new search model obj type
       this.searchFilter = model;
       this.searchProduct(true);
       console.log('received updated search model obj: ', model);
@@ -39,9 +39,9 @@ export class SearchFilterComponent implements OnInit, OnChanges {
     this.filteredList = this.productList;
   }
 
-  searchProduct(searchModelUpdated?) {
+  searchProduct(searchModelUpdated?: boolean): void {
     this.filteredList = this.productList;
-    let filterFilteredList = [];
+    let filterFilteredList: any = []; // --> give appropriate type
     const regex = new RegExp(this.searchFilter.searchInputValue, 'ig');
 
     for (const key of Object.keys(this.searchFilter)) {
@@ -89,12 +89,7 @@ export class SearchFilterComponent implements OnInit, OnChanges {
     }
   }
 
-  onSearchFilterChange() {
-    // console.log('search filter obj changed to: ', this.searchFilter);
-    // this._searchDataService.setSearchData(this.searchFilter);
-  }
-
-  removeFilter() {
+  removeFilter(): void {
     this.searchFilter = {
       searchInputValue: '',
       priceRange: '',
